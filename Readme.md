@@ -1,8 +1,22 @@
+```markdown
 # Automated Docker Builds with GitHub Actions
 
-This repository demonstrates how to set up a CI/CD workflow using GitHub Actions to automatically test, build, and push a Docker image to DockerHub.
+This repository showcases a CI/CD pipeline using GitHub Actions to automate the testing, building, and pushing of a Docker image to Docker Hub.
 
-## Project Structure
+## Table of Contents
+
+* [Project Overview](#project-overview)
+* [Repository Structure](#repository-structure)
+* [CI/CD Workflow](#ci-cd-workflow)
+* [Setup Instructions](#setup-instructions)
+* [Screenshots](#screenshots)
+* [Usage](#usage)
+
+## Project Overview
+
+This project demonstrates how to streamline Docker image management through automated processes. By leveraging GitHub Actions, we can ensure that every code change is thoroughly tested and that updated images are seamlessly pushed to Docker Hub.
+
+## Repository Structure
 
 ```
 project/
@@ -20,26 +34,51 @@ project/
 └── README.md
 ```
 
-## CI/CD Pipeline
+* `app/`: Contains the application's source code.
+* `tests/`: Includes unit tests for the application.
+* `Dockerfile`: Defines the instructions for building the Docker image.
+* `requirements.txt`: Lists the Python dependencies.
+* `.github/workflows/docker-build.yml`: Defines the GitHub Actions workflow.
+* `README.md`: This documentation file.
 
-The configured GitHub Actions workflow will:
+## CI/CD Workflow
 
-1. Automatically run tests when code is pushed to the main branch or when a pull request is created
-2. If tests pass and the event is a push to main (not a pull request), it will:
-   - Build the Docker image
-   - Push the image to DockerHub
+The GitHub Actions workflow defined in `.github/workflows/docker-build.yml` performs the following steps:
 
-## Setting Up the Repository
+1.  **Automated Testing:**
+    * Runs unit tests whenever code is pushed to the `main` branch or a pull request is created.
+2.  **Docker Image Build and Push:**
+    * If the tests pass and the event is a push to the `main` branch (not a pull request), the workflow:
+        * Builds the Docker image.
+        * Pushes the image to Docker Hub.
 
-1. Create a new GitHub repository
-2. Add the files from this project to your repository
-3. Set up the following secrets in your GitHub repository settings:
-   - `DOCKERHUB_USERNAME`: Your DockerHub username
-   - `DOCKERHUB_TOKEN`: A DockerHub access token (create one in DockerHub account settings)
+## Setup Instructions
 
-## Screenshot
+1.  **Create a GitHub Repository:**
+    * Create a new GitHub repository.
+2.  **Add Project Files:**
+    * Add the files from this project to your repository.
+3.  **Configure GitHub Secrets:**
+    * In your GitHub repository settings, add the following secrets:
+        * `DOCKERHUB_USERNAME`: Your Docker Hub username.
+        * `DOCKERHUB_TOKEN`: A Docker Hub access token (create one in your Docker Hub account settings).
 
-### DockerHub Repository
+## Screenshots
 
-1.The screenshot image being psuhed to dockerhub
-![DockerHub Screenshot](./screenshots/dockerhub_screenshot.png)
+### Docker Hub Repository
+
+* Screenshot showing the Docker image being pushed to Docker Hub:
+
+    ```markdown
+    ![DockerHub Screenshot](./screenshots/dockerhub_screenshot.png)
+    ```
+
+## Usage
+
+1.  **Push Code Changes:**
+    * Make changes to the application code and push them to the `main` branch.
+2.  **Observe GitHub Actions:**
+    * Go to the "Actions" tab in your GitHub repository to monitor the workflow's progress.
+3.  **Verify Docker Hub:**
+    * Check your Docker Hub repository to confirm that the updated image has been pushed.
+```
