@@ -52,7 +52,7 @@ The GitHub Actions workflow defined in `.github/workflows/docker-build.yml` perf
 
 - Screenshot showing the Docker image being pushed to Docker Hub:
 
-  ![DockerHub Screenshot](dockerhub_screenshot.png)
+  ![DockerHub Screenshot](screenshot.png)
 
 ## Usage
 
